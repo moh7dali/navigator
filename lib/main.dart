@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nav/screen.dart';
+import 'package:nav/firstscreen.dart';
+import 'package:nav/secondscreen.dart';
 
 void main() {
   runApp(MaterialApp(home: MyApp()));
@@ -27,8 +28,8 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Container(
-          child: ElevatedButton.icon(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          ElevatedButton.icon(
             onPressed: () {
               setState(() {
                 Navigator.push(context, MaterialPageRoute(
@@ -40,11 +41,27 @@ class _HomeState extends State<Home> {
             },
             icon: Icon(Icons.forward),
             label: Text(
-              "Move to second screen",
+              "Move to first screen",
               style: TextStyle(fontSize: 30),
             ),
           ),
-        ),
+          ElevatedButton.icon(
+            onPressed: () {
+              setState(() {
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context) {
+                    return Screentwo();
+                  },
+                ));
+              });
+            },
+            icon: Icon(Icons.forward),
+            label: Text(
+              "Move to Second screen",
+              style: TextStyle(fontSize: 26),
+            ),
+          ),
+        ]),
       ),
     );
   }
